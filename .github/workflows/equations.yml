@@ -1,0 +1,44 @@
+name: Compile equations
+
+# Whenever a .tex file in equations/ changes, real LaTeX compiles each
+# equation into two SVG images (light and dark theme) shown in the README.
+on:
+  push:
+    paths:
+      - "equations/**.tex"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install LaTeX and the SVG converter
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq texlive-latex-extra poppler-utils > /dev/null
+
+      - name: Compile each equation (light and dark versions)
+        working-directory: equations
+        run: |
+          for f in *.tex; do
+            [ "$f" = "preamble.tex" ] && continue
+            name="${f%.tex}"
+            pdflatex -interaction=nonstopmode -halt-on-error "$f"
+            pdftocairo -svg "$name.pdf" "$name.svg"
+            pdflatex -interaction=nonstopmode -halt-on-error -jobname="$name-dark" "\\def\\darkmode{}\\input{$f}"
+            pdftocairo -svg "$name-dark.pdf" "$name-dark.svg"
+          done
+          rm -f *.aux *.log *.pdf
+
+      - name: Commit the images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add equations/*.svg
+          git diff --cached --quiet || git commit -m "Compile equations to SVG"
+          git push

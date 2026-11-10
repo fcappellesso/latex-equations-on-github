@@ -1,0 +1,18 @@
+% Shared preamble for every equation in this folder.
+% Each equation file starts with \input{preamble}.
+\documentclass[border=6pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+
+% No background: the image is transparent and blends with the reader's theme.
+% Text colours follow GitHub's own colours for each theme.
+\definecolor{lighttheme}{HTML}{1F2328}
+\definecolor{darktheme}{HTML}{E6EDF3}
+\ifdefined\darkmode
+  \AtBeginDocument{\color{darktheme}}
+\else
+  \AtBeginDocument{\color{lighttheme}}
+\fi
+
+% Width of the "page" of each equation: the number sits on the right margin.
+\newenvironment{page}{\begin{minipage}{10cm}}{\end{minipage}}
