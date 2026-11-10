@@ -31,6 +31,8 @@ equazioni non funziona bene ([discussione #212507](https://github.com/orgs/commu
 
 ## Esempio 1 · l'equazione della discussione
 
+L'equazione di esempio viene dalla segnalazione di [@gustavdelius](https://github.com/gustavdelius) nella [discussione #212507](https://github.com/orgs/community/discussions/212507), che ha ispirato questo repository.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="equations/conservation-dark.svg">
   <img alt="Equazione (2.1)" src="equations/conservation.svg" width="620">

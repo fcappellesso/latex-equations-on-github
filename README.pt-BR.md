@@ -31,6 +31,8 @@ funciona bem ([discussão #212507](https://github.com/orgs/community/discussions
 
 ## Exemplo 1 · a equação da discussão
 
+A equação de exemplo vem do relato de [@gustavdelius](https://github.com/gustavdelius) na [discussão #212507](https://github.com/orgs/community/discussions/212507), que inspirou este repositório.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="equations/conservation-dark.svg">
   <img alt="Equação (2.1)" src="equations/conservation.svg" width="620">

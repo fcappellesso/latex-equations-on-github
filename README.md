@@ -31,6 +31,8 @@ well ([discussion #212507](https://github.com/orgs/community/discussions/212507)
 
 ## Example 1 · the equation from the discussion
 
+The example equation comes from the report by [@gustavdelius](https://github.com/gustavdelius) in [discussion #212507](https://github.com/orgs/community/discussions/212507), which inspired this repository.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="equations/conservation-dark.svg">
   <img alt="Equation (2.1)" src="equations/conservation.svg" width="620">
