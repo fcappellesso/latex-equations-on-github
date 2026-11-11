@@ -6,10 +6,22 @@ Write equations as you would in a paper — `\begin{equation}`, `align`,
 `\label`, a shared preamble, section-style numbering — and show them in any
 GitHub README with the number on the right margin, in both light and dark themes.
 
+> **A temporary way out, while we wait for a real fix.**
+>
+> I found the report by [@gustavdelius](https://github.com/gustavdelius) in [discussion #212507](https://github.com/orgs/community/discussions/212507) and ran into the
+> same difficulties. In mathematics we write LaTeX every day, and numbered
+> equations with `\label` and `\eqref` are part of how we work. On GitHub,
+> they do not work yet.
+>
+> This repository is the way out I found for now: if someone needs numbered
+> equations in a README today, it is an example of how to do it. It is not how
+> we should have to work day to day, and we hope the GitHub community will fix
+> the problem soon.
+
 ## The problem
 
 GitHub renders `$$ … $$` math in Markdown, but equation numbering does not work
-well ([discussion #212507](https://github.com/orgs/community/discussions/212507)):
+well:
 
 - `\tag{2.1}` squeezes the equation into a narrow vertical column in Chrome and
   Firefox, and in Safari the number appears on the **left**;
@@ -20,7 +32,7 @@ well ([discussion #212507](https://github.com/orgs/community/discussions/212507)
 - `\qquad\text{(2.1)}` is readable, but the number sits next to the equation
   and cannot be referenced.
 
-## The solution: let real LaTeX compile, and show the result
+## The way out for now: let real LaTeX compile, and show the result
 
 1. Each equation lives in a normal `.tex` file in [`equations/`](equations),
    starting with `\input{preamble}` ([`preamble.tex`](equations/preamble.tex)).
